@@ -1,0 +1,21 @@
+.title {
+  margin: 5vh auto;
+  text-align: center;
+}
+.img-container {
+  background-image: url(https://assets-lighthouse.alphacamp.co/uploads/image/file/16716/ExportedContentImage_00.png);
+  background-size: cover;
+  background-position: center center;
+  width: 30vh;
+  height: 30vh;
+  margin: 5vh auto;
+}
+
+.btn {
+  width: 50vh;
+  margin: 3vh auto;
+}
+
+form {
+  text-align: center;
+}
