@@ -1,13 +1,19 @@
 const express = require("express");
+const { engine } = require("express-handlebars");
 const app = express();
 const port = 3000;
+
+app.engine('.hbs', engine({extname: '.hbs'}))
+app.set('view engine', '.hbs')
+app.set('views', './views')
+app.use(express.static('public'))
 
 //利用Node.js的file system建立json檔，儲存網址與產生的對應短網址
 const fs = require("fs");
 
 //產生短網址
 function generateShortUrl() {
-
+  
   saveUrl();
 }
 
@@ -22,7 +28,7 @@ function saveUrl(data) {
 
 //產生器首頁
 app.get("/", (req, res) => {
-  res.send("express app for shorterURL");
+  res.render("index");
 });
 
 //導向原本URL
