@@ -2,13 +2,21 @@
 <div class="img-container">
 </div>
 <div class="container mt-5">
-  <form>
-    <input
-      type="url"
-      class="form-control"
-      placeholder="Input URL here"
-      id="inputUrl"
-    />
-    <button type="submit" class="btn btn-primary">Shorten</button>
-  </form>
+  {{#if data}}
+    <h1>Succsess! Please use this link:</h1>
+    <h3>http://localhost:3000/{{data}}</h3>
+  {{else}}
+  <form action="/shorten" method="post" id="url-form">
+      <input
+        type="text"
+        name="url"
+        class="form-control"
+        placeholder="Input URL here"
+        id="input-url"
+        required
+      />
+      <button type="submit" class="btn btn-primary btn-submit">Shorten</button>
+    </form>
+  {{/if}}
+
 </div>
