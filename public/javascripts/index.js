@@ -9,3 +9,11 @@ urlForm.addEventListener("submit", (event) => {
     }
 
 });
+
+function copyUrl() {
+  const short_URL = document.querySelector("#short-url");
+  navigator.clipboard
+    .writeText(short_URL.innerText)
+    .then(() => alert("copied"))
+    .catch((error) => console.log(error));
+}

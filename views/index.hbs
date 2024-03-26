@@ -3,10 +3,18 @@
 </div>
 <div class="container mt-5">
   {{#if data}}
-    <h1>Succsess! Please use this link:</h1>
-    <h3>http://localhost:3000/{{data}}</h3>
+    <h2 class="success">Succsess! Please use this link:</h2>
+    <a
+      id="short-url"
+      href="http://localhost:3000/{{data}}"
+    >http://localhost:3000/{{data}}</a>
+    <button
+      type="button"
+      onclick="copyUrl()"
+      class="btn btn-primary btn-copy"
+    >Copy</button>
   {{else}}
-  <form action="/shorten" method="post" id="url-form">
+    <form action="/shorten" method="post" id="url-form">
       <input
         type="text"
         name="url"
