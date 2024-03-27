@@ -14,8 +14,7 @@ app.use(express.static("public"));
 
 //利用Node.js的file system建立json檔，儲存網址與產生的對應短網址
 const fs = require("fs");
-const data = JSON.parse(fs.readFileSync("./data.json", "utf-8"));
-console.log(data);
+const data = JSON.parse(fs.readFileSync("./data.json"));
 
 //產生短網址亂碼
 function generateShortUrl() {
@@ -37,6 +36,15 @@ function saveUrl(url, shortUrl) {
       console.error(err);
     }
   });
+}
+
+//找出到儲存在data.json中的原本網址
+function findUrlFromData(obj, value) {
+  for (const key in obj) {
+    if (obj[key] === value) {
+      return key;
+    }
+  }
 }
 
 //產生器首頁
@@ -69,8 +77,8 @@ app.listen(app.get("port"), () => {
 //導向原本URL
 app.get("/:short_URL", (req, res) => {
   const short_URL = req.params.short_URL;
-  //先導向google以測試路由是否正常
-  const URL = `http://google.com`;
+  const URL = findUrlFromData(data, short_URL)
+
   res.redirect(URL);
 });
 

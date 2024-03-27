@@ -1,5 +1,5 @@
 {
-  "name": "url-shortener",
+  "name": "URL-shortener",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
     "dev": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Johnson Tseng",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.1",
